@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LightApp</string>
+    <string name="color_preview">Color preview</string>
+    <string name="send">Send</string>
+    <string name="state">State</string>
+    <string name="off">Off</string>
+    <string name="on">On</string>
+</resources>
