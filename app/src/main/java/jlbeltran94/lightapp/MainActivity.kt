@@ -18,8 +18,11 @@ import jlbeltran94.lightapp.net.ApiClient
 import jlbeltran94.lightapp.net.ApiInterface
 import jlbeltran94.lightapp.util.push
 import kotlinx.android.synthetic.main.activity_main.*
+import org.eclipse.paho.android.service.MqttAndroidClient
 import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.toast
+import rx.mqtt.android.RxMqtt
+
 /**
  * Created by jlbeltran94 on 7/10/17.
  */
@@ -29,6 +32,17 @@ class MainActivity : AppCompatActivity() {
     lateinit var col: ColorDrawable
     lateinit var client: ApiInterface
     val dis:CompositeDisposable = CompositeDisposable()
+    val URL:String = "tcp://iot.eclipse.org:1883"
+    val rgbCol:String = "/unicauca/light/D0/color"
+    val status:String = "/unicauca/light/D0/relay/0"
+    val white:String = "/unicauca/light/D0/channel/3"
+    val brightness:String = "/unicauca/light/D0/brightness"
+    val mqttAndroidCLient: MqttAndroidClient by lazy{
+        RxMqtt.client(applicationContext, URL)
+    }
+    var con:Boolean = false
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -174,6 +188,19 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         dis.dispose()
+    }
+
+    fun connect(){
+        dis push RxMqtt.connect(mqttAndroidCLient)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribeBy(
+                        onComplete = {
+                            con = true
+                        },
+                        onError = {
+                            con = false
+                        } )
     }
 
 }

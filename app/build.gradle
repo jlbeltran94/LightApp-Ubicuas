@@ -72,6 +72,12 @@ dependencies {
     // Coroutine listeners for Anko Layouts
     compile "org.jetbrains.anko:anko-sdk25-coroutines:$anko_version"
     compile "org.jetbrains.anko:anko-appcompat-v7-coroutines:$anko_version"
+
+    //mqtt
+    compile 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0'
+    compile 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+    //rx-mqtt
+    compile 'com.github.yongjhih.rx-mqtt:rx-mqtt-android:-SNAPSHOT'
 }
 repositories {
     mavenCentral()
