@@ -20,7 +20,9 @@ import jlbeltran94.lightapp.util.push
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.toast
-
+/**
+ * Created by jlbeltran94 on 7/10/17.
+ */
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
