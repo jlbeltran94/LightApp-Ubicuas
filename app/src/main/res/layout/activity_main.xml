@@ -32,91 +32,177 @@
             android:id="@+id/redBar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="16dp"
             android:max="255"
             android:progress="0"
             android:progressTint="#FF0000"
             android:thumbTint="#FF0000"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/colorPreview" />
+            app:layout_constraintTop_toBottomOf="@+id/colorPreview"
+            android:layout_marginLeft="0dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="@+id/greenBar"
+            tools:ignore="RtlHardcoded" />
 
         <SeekBar
             android:id="@+id/greenBar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
             android:max="255"
             android:progress="0"
             android:progressTint="@android:color/holo_green_dark"
             android:thumbTint="@android:color/holo_green_dark"
-            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/redBar" />
+            app:layout_constraintTop_toBottomOf="@+id/redBar"
+            app:layout_constraintLeft_toRightOf="@+id/brightnessLabel"
+            android:layout_marginLeft="8dp" />
 
         <SeekBar
             android:id="@+id/blueBar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
             android:max="255"
             android:progress="0"
             android:progressTint="#0000FF"
             android:thumbTint="#0000FF"
-            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/greenBar" />
+            app:layout_constraintTop_toBottomOf="@+id/greenBar"
+            android:layout_marginLeft="0dp"
+            app:layout_constraintLeft_toLeftOf="@+id/greenBar"
+            tools:ignore="RtlHardcoded" />
 
         <SeekBar
             android:id="@+id/whiteBar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
             android:max="255"
             android:progress="0"
             android:progressTint="?attr/colorButtonNormal"
             android:thumbTint="?attr/colorButtonNormal"
-            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/blueBar" />
-
-        <Button
-            android:id="@+id/button"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:text="@string/send"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/blueBar"
+            android:layout_marginLeft="0dp"
+            app:layout_constraintLeft_toLeftOf="@+id/blueBar" />
 
         <Switch
             android:id="@+id/switch1"
-            android:layout_width="94dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
+            android:switchTextAppearance="@style/TextAppearance.AppCompat.Body1"
             android:text="@string/state"
+            android:textColorLink="@android:color/holo_blue_bright"
             android:textOff="@string/off"
             android:textOn="@string/on"
             android:thumbTint="@android:color/holo_blue_bright"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/whiteBar"
+            app:layout_constraintTop_toBottomOf="@+id/brightnessBar"
             tools:checked="false"
             tools:ignore="RtlHardcoded" />
+
+        <SeekBar
+            android:id="@+id/brightnessBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:max="255"
+            android:progress="0"
+            android:progressTint="@android:color/holo_orange_light"
+            android:thumbTint="@android:color/holo_orange_light"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/whiteBar"
+            android:layout_marginLeft="0dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="@+id/whiteBar" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fabUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="8dp"
+            android:clickable="true"
+            app:backgroundTint="@android:color/holo_blue_dark"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:srcCompat="@android:drawable/ic_popup_sync" />
+
+        <TextView
+            android:id="@+id/redLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="0dp"
+            android:text="@string/red"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/redBar"
+            android:layout_marginRight="0dp"
+            app:layout_constraintRight_toRightOf="@+id/brightnessLabel"
+            app:layout_constraintHorizontal_bias="1.0" />
+
+        <TextView
+            android:id="@+id/greenLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="0dp"
+            android:text="@string/green"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/greenBar"
+            android:layout_marginRight="0dp"
+            app:layout_constraintRight_toRightOf="@+id/brightnessLabel"
+            app:layout_constraintHorizontal_bias="1.0" />
+
+        <TextView
+            android:id="@+id/blueLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="0dp"
+            android:text="@string/blue"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@+id/brightnessLabel"
+            app:layout_constraintTop_toTopOf="@+id/blueBar" />
+
+        <TextView
+            android:id="@+id/whiteLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="0dp"
+            android:text="@string/white"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/whiteBar"
+            android:layout_marginRight="0dp"
+            app:layout_constraintRight_toRightOf="@+id/brightnessLabel"
+            app:layout_constraintHorizontal_bias="1.0" />
+
+        <TextView
+            android:id="@+id/brightnessLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="@string/brightness"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/brightnessBar"
+            android:layout_marginTop="0dp" />
 
     </android.support.constraint.ConstraintLayout>
 </layout>

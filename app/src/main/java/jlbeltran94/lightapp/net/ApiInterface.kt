@@ -3,6 +3,7 @@ package jlbeltran94.lightapp.net
 import io.reactivex.Observable
 import jlbeltran94.lightapp.models.Data
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 /**
@@ -12,5 +13,8 @@ interface ApiInterface{
 
     @POST("/")
     fun sendData(@Body data: Data): Observable<SimpleResponse>
+
+    @GET("/")
+    fun receiveData(): Observable<Data>
 
 }
