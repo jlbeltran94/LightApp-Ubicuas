@@ -28,6 +28,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:background="@android:color/black" />
 
+
         <SeekBar
             android:id="@+id/redBar"
             android:layout_width="0dp"

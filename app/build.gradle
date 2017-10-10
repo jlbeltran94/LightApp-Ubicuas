@@ -78,6 +78,8 @@ dependencies {
     compile 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
     //rx-mqtt
     compile 'com.github.yongjhih.rx-mqtt:rx-mqtt-android:-SNAPSHOT'
+    //rx-binding
+    compile 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
 }
 repositories {
     mavenCentral()
