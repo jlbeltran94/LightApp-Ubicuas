@@ -9,6 +9,9 @@ import android.util.Log
 import android.view.View
 import android.widget.CompoundButton
 import android.widget.SeekBar
+import com.jakewharton.rxbinding2.InitialValueObservable
+import com.jakewharton.rxbinding2.widget.RxSeekBar
+import com.jakewharton.rxbinding2.widget.SeekBarStopChangeEvent
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.subscribeBy
@@ -117,36 +120,46 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-        brightnessBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+//        brightnessBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+//            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+//
+//            }
+//
+//            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+//            }
+//
+//            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+//                rxSendBrightness()
+//            }
+//
+//        })
 
-            }
+        RxSeekBar.changeEvents(brightnessBar)
+                .subscribeBy(
+                        onError = {
+                            Log.e("s","s", it)
+                        },
+                        onNext = {
+                            if (it is SeekBarStopChangeEvent){
+                                rxSendBrightness()
+                            }
+                        }
+                )
 
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-            }
-
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                rxSendBrightness()
-            }
-
-        })
 
 
-
-        switch1.setOnCheckedChangeListener(object : CompoundButton.OnCheckedChangeListener{
-            override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
-                rxSendStatus()
-            }
-
-        })
-
-        fabUpdate.visibility = View.INVISIBLE
+        switch1.setOnCheckedChangeListener { _, _ -> rxSendStatus() }
 
     }
 
     override fun onResume() {
         super.onResume()
         connect()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        dis.dispose()
     }
 
 
@@ -209,12 +222,6 @@ class MainActivity : AppCompatActivity() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe()
-    }
-
-
-    override fun onDestroy() {
-        super.onDestroy()
-        dis.dispose()
     }
 
     fun connect(){

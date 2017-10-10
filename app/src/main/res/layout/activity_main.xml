@@ -125,19 +125,6 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="@+id/whiteBar" />
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fabUpdate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginRight="8dp"
-            android:clickable="true"
-            app:backgroundTint="@android:color/holo_blue_dark"
-            app:fabSize="normal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:srcCompat="@android:drawable/ic_popup_sync" />
-
         <TextView
             android:id="@+id/redLabel"
             android:layout_width="wrap_content"

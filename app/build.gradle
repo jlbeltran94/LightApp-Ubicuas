@@ -80,6 +80,7 @@ dependencies {
     compile 'com.github.yongjhih.rx-mqtt:rx-mqtt-android:-SNAPSHOT'
     //rx-binding
     compile 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
+    compile 'com.jakewharton.rxbinding2:rxbinding-appcompat-v7-kotlin:2.0.0'
 }
 repositories {
     mavenCentral()
